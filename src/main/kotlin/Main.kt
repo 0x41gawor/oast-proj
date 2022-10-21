@@ -8,5 +8,6 @@ fun main(args: Array<String>) {
     val links = parser.links
     val demands = parser.demands
     val x = FlowMatrix(demands)
+    x.init()
     println(x)
 }
