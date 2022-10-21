@@ -13,5 +13,7 @@ class Program {
         x = FlowMatrix(demands)
         x.init()
         println(x)
+        val linkLoadCalculator = LinkLoadCalculator()
+        linkLoadCalculator.run(e,x).toString()
     }
 }

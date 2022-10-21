@@ -7,4 +7,8 @@ data class Path(
         data.id,
         data.linkIdList
     )
+
+    fun contain(linkId: Int): Boolean {
+        return linkIdList.contains(linkId)
+    }
 }

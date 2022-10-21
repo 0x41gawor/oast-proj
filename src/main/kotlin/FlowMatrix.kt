@@ -1,5 +1,5 @@
 class FlowMatrix(demands: Demands) {
-    private var body: Array<IntArray> = arrayOf()
+    var body: Array<IntArray> = arrayOf()
     private val volumes: ArrayList<Int> = arrayListOf()
     private var demandsCount = 0
     private var pathsCount = 0
