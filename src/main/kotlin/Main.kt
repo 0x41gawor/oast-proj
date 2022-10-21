@@ -1,4 +1,8 @@
+
+const val FILE_NAME = "input.txt"
+
 fun main(args: Array<String>) {
     println("Hello World!")
-    println("Program arguments: ${args.joinToString()}")
+    val parser: Parser = Parser()
+    parser.init(FILE_NAME)
 }
