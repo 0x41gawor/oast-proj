@@ -9,7 +9,17 @@ class Demands {
         return body.toString()
     }
 
-    fun getMaxPathsCount(){
-        //TODO
+    fun getMaxPathsCount(): Int{
+        var max = 0
+        for(item in body) {
+            if (item.paths.size > max) {
+                max = item.paths.size
+            }
+        }
+        return max
+    }
+
+    fun size() :Int {
+        return body.size
     }
 }
