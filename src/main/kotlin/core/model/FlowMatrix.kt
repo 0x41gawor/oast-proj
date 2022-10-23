@@ -1,3 +1,5 @@
+package core.model
+
 class FlowMatrix(demands: Demands) {
     var body: Array<IntArray> = arrayOf()
     private val volumes: ArrayList<Int> = arrayListOf()

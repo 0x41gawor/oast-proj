@@ -1,3 +1,5 @@
+package core.model
+
 data class Path(
     val id: Int,
     val linkIdList: List<Int>

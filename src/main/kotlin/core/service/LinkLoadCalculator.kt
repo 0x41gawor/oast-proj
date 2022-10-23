@@ -1,3 +1,8 @@
+package core.service
+
+import core.model.FlowMatrix
+import core.model.Graph
+
 class LinkLoadCalculator {
     fun run(e: Graph, x: FlowMatrix): IntArray {
 

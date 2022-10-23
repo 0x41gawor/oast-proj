@@ -1,3 +1,5 @@
+package core.model
+
 class Demands {
     val body: ArrayList<Demand> = arrayListOf()
 

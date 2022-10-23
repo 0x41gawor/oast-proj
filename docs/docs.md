@@ -8,7 +8,7 @@ Stages:
 
 ## DAP Description
 
-### Link
+### core.model.Link
 ```kotlin
 id: Int
 srcNode: Int
@@ -16,16 +16,16 @@ dstNode: Int
 capacity: Int
 ```
 
-### Demand
+### core.model.Demand
 ```kotlin
 id: Int
 srcNode: Int
 dstNode: Int
 volume: Int // same unit as capacity
-paths: Path
+paths: core.model.Path
 ```
 
-### Path
+### core.model.Path
 ```kotlin
 id: Int // local id intra demand (unique id = demandId+pathId)
 linkList: List<Int>
@@ -39,7 +39,7 @@ path: Int   // path id intra demand
 volume: Int // same unit as capacity
 ```
 
-### FlowMatrix
+### core.model.FlowMatrix
 ![](img/1.png)
 
 Macierz przepływu, jeden wpis w niej to jedno `FlowAllocation`.
@@ -56,14 +56,14 @@ body: 2Darray<FlowAllocation>
 Cel: Obliczyć F(x) -> Obliczyć l(e,x) dla danego x (hardcodowane) i dla danej sieci (zparsowane)
 
 Klasy:
-- Link
-- Path
-- Demand
+- core.model.Link
+- core.model.Path
+- core.model.Demand
 - Taka co liczy l, Y, F
 
 - Wczytać `links`
 - Wczytać `demands`
-- Wygenerować zerową `FlowMatrix`, potem wypłenić (napoczątek hardcode)
+- Wygenerować zerową `core.model.FlowMatrix`, potem wypłenić (napoczątek hardcode)
 - Obliczyć l(e,x)  
 - Obliczyć Y(e,x)
 - Obliczyć F(e,x)

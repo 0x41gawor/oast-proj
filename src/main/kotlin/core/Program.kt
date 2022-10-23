@@ -1,3 +1,10 @@
+package core
+
+import core.model.FlowMatrix
+import core.model.Graph
+import core.service.MaxLoadFunction
+import core.service.Parser
+
 class Program {
     private val fileName = "input.txt"
 

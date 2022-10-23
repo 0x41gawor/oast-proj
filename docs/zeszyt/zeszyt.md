@@ -23,7 +23,7 @@ OAST cel robity na dwa bloki - zapoznanie słuchaczy z:
 
 **Commodity** - given **volume** to be sent from its **source** node to its **destination ** node. 
 
-**Path flow** - a mean by which **commodity** can flow
+**core.model.Path flow** - a mean by which **commodity** can flow
 
 *commodity* charakteryzuje jego *volume*, *source* oraz *destination*. To jest dane. Realizacje przepływu tego towaru robią *path flows*.
 
@@ -87,11 +87,11 @@ OAST cel robity na dwa bloki - zapoznanie słuchaczy z:
 
 notions - notacja
 
-### Graph
+### core.model.Graph
 
 ![](img/3.png)
 
-Graph has:
+core.model.Graph has:
 
 - **nodes** oznaczane poprzez `v`. Jest ich `V`
   - `v = 1,2,...V`
@@ -110,7 +110,7 @@ Graph has:
 
 ### Paths
 
-Path is described by nodes and links by which it goes.
+core.model.Path is described by nodes and links by which it goes.
 
 Zapis:
 
@@ -162,7 +162,7 @@ No a to można zapisać w wektorze, która ma zasadę:
 
 ![](img/7.png)
 
-### Links
+### core.model.Links
 
 Co charakteryzuje **link**?
 
@@ -174,7 +174,7 @@ Co charakteryzuje **link**?
 
 `C3` określa łączną (wszystkich modułów) capacity linka o numerze `3` 
 
-### Demand
+### core.model.Demand
 
 Wcześniej mówiliśmy **commodity**.
 
@@ -182,7 +182,7 @@ Wcześniej mówiliśmy **commodity**.
 
 W grafie jest ich `D`
 
-Demand charakteryzuje para node'ów i volume
+core.model.Demand charakteryzuje para node'ów i volume
 
 ![](img/9.png)
 
@@ -235,7 +235,7 @@ Np. demand o numerze `2` jest między `v1` i `v3` a jego volume to `4Mb/s`
 Zróbmy sobie przykład dla demanda 4.
 
 ```
-Demand 4{
+core.model.Demand 4{
 src: 2 node //pole src ma wartość 2 i jest typu node
 dst: 3 node
 volume: 2 capacity // pole volume ma wartość 2 i jest typu capacity (więc jednostka Mb/s)
@@ -278,9 +278,9 @@ Zważając przy tym, że zaalokowanie danego volume na ścieżkę zaalokuje dan�
 
 Trzeba więc rodzielanie volume na pathy robić tak, aby na żadnym linku nie zaalokować więcej niż link's capacity.
 
-I to się nazywa właśnie ---> **Demand Allocation Problem**
+I to się nazywa właśnie ---> **core.model.Demand Allocation Problem**
 
-## DAP - Demand Allocation Problem
+## DAP - core.model.Demand Allocation Problem
 
 ### Flow Allocation x
 
@@ -332,7 +332,7 @@ p - numer patha tego demanda
 
 `x` to funkcja, która dla danego demanda, dla danej jego ścieżki określa ile jest na tym pathie `demand units`.
 
-### Link Load Calculation
+### core.model.Link Load Calculation
 
 ![](img/17.png)
 
@@ -359,7 +359,7 @@ Możemy to zapisać w takiej pętli.
 
 Zauważ, że `delta edp` zostało zrealizowane jako if.
 
-### Link overload
+### core.model.Link overload
 
 Dobra, ja już policzmy dla każdego linku wartości funkcji `l(e,x)`, to sprawdźmy czy nie wychodzą ona więcej niż `Ce` czyli capacity danego linku.
 
@@ -440,13 +440,13 @@ Jak już mamy policzone funkcje `Y` - overloady, to zdefiniujmy sobie funkcje `F
 
 Która określa po prostu max wartość ze zbioru wartości funkcji `Y`.
 
-No i cały Demand Allocation Problem polega na tym, aby w danym grafie poszukać takie *Flow allocations (x)*, żeby wartość tej funkcji F zminimalizować.
+No i cały core.model.Demand Allocation Problem polega na tym, aby w danym grafie poszukać takie *Flow allocations (x)*, żeby wartość tej funkcji F zminimalizować.
 
 ![](img/26.png)
 
 Narazie poznaliśmy definicje problemu, jak go rozwiązać jeszcze nie wiemy.
 
-## DDAP - Dimensioning and Demand Allocation Problem
+## DDAP - Dimensioning and core.model.Demand Allocation Problem
 
 Problem wymiarowania i alokacji zapotrzebowań.
 
@@ -468,12 +468,12 @@ Czyli do momentu obliczenia *link load* zadanie jest identyczne jak w DAP. Dopie
 
 ![](img/30.png)
 
-Demands and its paths:
+core.model.Demands and its paths:
 
 ```
-Demand 1: (src,dst) = (1,2) hd = 1. P11 = {100}, P12 = {011}
-Demand 2: (src,dst) = (1,3) hd = 1. P21 = {010}, P22 = {101}
-Demand 3: (src,dst) = (2,3) hd = 1. P31 = {001}, P32 = {110}
+core.model.Demand 1: (src,dst) = (1,2) hd = 1. P11 = {100}, P12 = {011}
+core.model.Demand 2: (src,dst) = (1,3) hd = 1. P21 = {010}, P22 = {101}
+core.model.Demand 3: (src,dst) = (2,3) hd = 1. P31 = {001}, P32 = {110}
 ```
 
 Szukamy **flow allocations (macierzy rozpływu)**.

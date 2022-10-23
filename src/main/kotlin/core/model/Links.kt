@@ -1,3 +1,5 @@
+package core.model
+
 class Links {
     val body: ArrayList<Link> = arrayListOf()
     var count = 0

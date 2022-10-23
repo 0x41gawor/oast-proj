@@ -1,4 +1,4 @@
-
+import core.Program
 
 
 fun main(args: Array<String>) {

@@ -1,3 +1,10 @@
+package core.service
+
+import core.model.Path
+import core.model.Demand
+import core.model.Demands
+import core.model.Link
+import core.model.Links
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStream
