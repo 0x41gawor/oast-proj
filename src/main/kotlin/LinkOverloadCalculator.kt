@@ -1,5 +1,16 @@
 class LinkOverloadCalculator {
     fun run(e: Graph, x: FlowMatrix): IntArray {
-        return intArrayOf(10, 20, 30, 40, 50)
+        val l = LinkLoadCalculator()
+        val linkLoads = l.run(e,x)
+        val linkOverloads = IntArray(e.links.count) { 0 }
+        for (i in 0 until e.links.count) {
+            linkOverloads[i] = linkLoads[i] - e.links.body[i].capacity
+        }
+
+        for (element in linkOverloads) {
+            print("$element ")
+        }
+
+        return linkOverloads
     }
 }
