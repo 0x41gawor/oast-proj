@@ -7,10 +7,6 @@ class LinkOverloadCalculator {
             linkOverloads[i] = linkLoads[i] - e.links.body[i].capacity
         }
 
-        for (element in linkOverloads) {
-            print("$element ")
-        }
-
         return linkOverloads
     }
 }

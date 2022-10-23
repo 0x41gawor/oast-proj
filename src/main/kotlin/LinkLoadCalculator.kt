@@ -11,11 +11,6 @@ class LinkLoadCalculator {
                 }
             }
         }
-
-        for (element in linkLoads) {
-            print("$element ")
-        }
-        println()
         return linkLoads
     }
 }

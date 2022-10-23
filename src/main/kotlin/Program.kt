@@ -13,7 +13,7 @@ class Program {
         x = FlowMatrix(demands)
         x.init()
         println(x)
-        val linkOverloadCalculator = LinkOverloadCalculator()
-        linkOverloadCalculator.run(e,x).toString()
+        val f = MaxLoadFunction()
+        println(f.run(e,x).toString())
     }
 }
