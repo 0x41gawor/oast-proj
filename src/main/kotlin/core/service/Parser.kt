@@ -57,10 +57,10 @@ class Parser {
                 demands.add(readDemand)
             }
         }
-        println("--------UTWORZONE LINKI--------")
-        println(links)
-        println("--------UTWORZONE DEMANDY--------")
-        println(demands)
+//        println("--------UTWORZONE LINKI--------")
+//        println(links)
+//        println("--------UTWORZONE DEMANDY--------")
+//        println(demands)
     }
 
     private fun readDemand(lineList: MutableList<String>, start: Int): Demand {

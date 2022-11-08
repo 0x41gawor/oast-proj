@@ -4,8 +4,8 @@ import core.model.FlowMatrix
 import core.model.Graph
 
 class MaxLoadFunction {
-    fun run(e: Graph, x: FlowMatrix): Int? {
+    fun run(e: Graph, x: FlowMatrix): Int {
         val y = LinkOverloadCalculator()
-        return y.run(e, x).maxOrNull()
+        return y.run(e, x).maxOrNull() ?: Int.MAX_VALUE
     }
 }

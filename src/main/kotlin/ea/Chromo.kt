@@ -6,7 +6,7 @@ const val PROBABILITY_OF_GENE_MUTATION = 30
 
 class Chromo(
     val wrapee: FlowMatrix,
-    private val fintessValue: Int = Int.MAX_VALUE
+    var fintessValue: Int = Int.MAX_VALUE
     ) {
 
     fun getFlowMatrix(): FlowMatrix {
@@ -45,5 +45,9 @@ class Chromo(
                 wrapee.body[d][idOfAwardedPath] += 1
             }
         }
+    }
+
+    override fun toString(): String {
+        return "$wrapee" + "Fitness Value: $fintessValue\n"
     }
 }

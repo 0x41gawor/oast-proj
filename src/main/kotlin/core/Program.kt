@@ -5,6 +5,7 @@ import core.model.Graph
 import core.service.MaxLoadFunction
 import core.service.Parser
 import ea.Chromo
+import ea.SetOfChromos
 
 class Program {
     private val fileName = "input.txt"
@@ -18,15 +19,16 @@ class Program {
         val links = parser.links
         val demands = parser.demands
         e = Graph(links, demands)
-        x = FlowMatrix(demands)
-        x.init()
-        println(x)
-        println("MUTATION")
-        val chromo = Chromo(x)
-        chromo.mutate()
-        println(chromo.wrapee)
-
-//        val f = MaxLoadFunction()
-//        println(f.run(e,x).toString())
+        val setOfChromos = SetOfChromos(e)
+        for(i in 1..10){
+            x = FlowMatrix(demands)
+            x.init()
+            val chromo = Chromo(x)
+            setOfChromos.add(chromo)
+        }
+        val new = setOfChromos.selectBest(3)
+        setOfChromos.show()
+        println("=============================================================Selecting best...=============================================================")
+        new.show()
     }
 }
