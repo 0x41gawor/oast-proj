@@ -9,7 +9,7 @@ class FlowMatrix(demands: Demands) {
 
     init {
         this.demands = demands
-        demandsCount = demands.size()
+        demandsCount = demands.count()
         pathsCount = demands.getMaxPathsCount()
         body = Array(demandsCount) { IntArray(pathsCount) { Int.MAX_VALUE } }
         for (i in 0 until demandsCount) {

@@ -21,7 +21,7 @@ class Demands {
         return max
     }
 
-    fun size() :Int {
+    fun count() :Int {
         return body.size
     }
 }

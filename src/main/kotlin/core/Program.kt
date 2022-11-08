@@ -2,7 +2,6 @@ package core
 
 import core.model.FlowMatrix
 import core.model.Graph
-import core.service.MaxLoadFunction
 import core.service.Parser
 import ea.Chromo
 import ea.SetOfChromos
@@ -26,9 +25,5 @@ class Program {
             val chromo = Chromo(x)
             setOfChromos.add(chromo)
         }
-        val new = setOfChromos.selectBest(3)
-        setOfChromos.show()
-        println("=============================================================Selecting best...=============================================================")
-        new.show()
     }
 }
