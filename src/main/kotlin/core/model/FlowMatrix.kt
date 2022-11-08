@@ -2,10 +2,10 @@ package core.model
 
 class FlowMatrix(demands: Demands) {
     var body: Array<IntArray> = arrayOf()
+    var demandsCount = 0
+    var demands: Demands
     private val volumes: ArrayList<Int> = arrayListOf()
-    private var demandsCount = 0
     private var pathsCount = 0
-    private var demands: Demands
 
     init {
         this.demands = demands
