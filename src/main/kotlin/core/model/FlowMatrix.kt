@@ -34,6 +34,7 @@ class FlowMatrix(demands: Demands) {
     }
 
     override fun toString(): String {
+        /**
         print("    ")
         for (p in 0 until pathsCount) {
             print("p$p ")
@@ -59,6 +60,8 @@ class FlowMatrix(demands: Demands) {
                 println(" ${volumes[d]}")
             }
         }
+        return ""
+        **/
         return ""
     }
 }

@@ -13,14 +13,11 @@ class SetOfChromos(
     private var body: ArrayList<Chromo> = arrayListOf()
 
     fun mutate() {
-        var i = 1
         for (chromo in body) {
             val x = (0..99).random()
             if (x < PROBABILITY_OF_CHROMO_MUTATION) {
-                println("mutacja w $i index")
                 chromo.mutate()
             }
-            i++
         }
         calculateFitnessValues()
     }
@@ -47,9 +44,7 @@ class SetOfChromos(
 
     fun selectBest(n: Int): SetOfChromos {
         calculateFitnessValues()
-
         val returnedList = ArrayList<Chromo>()
-
         body.sortBy { it.fintessValue }
 
         for (i in 0 until n) {
@@ -62,11 +57,14 @@ class SetOfChromos(
         return result
     }
 
-    fun init(n: Int) {
-        val x = FlowMatrix(graph.demands)
-        x.init()
-        val chromo = Chromo(x)
-        add(chromo)
+    fun init(n: Int): SetOfChromos {
+        for (i in 0 until n) {
+            val x = FlowMatrix(graph.demands)
+            x.init()
+            val chromo = Chromo(x)
+            add(chromo)
+        }
+        return this
     }
 
     fun add(chromo: Chromo) {
@@ -86,10 +84,8 @@ class SetOfChromos(
 
     private fun selectRandom(): Chromo {
         val x = (1 until body.size).random()
-        println("SelectRandom: $x")
         return body[x]
     }
-
 
     private fun calculateFitnessValues() {
         for (chromo in body) {
@@ -100,5 +96,15 @@ class SetOfChromos(
 
     private fun setBody(list: ArrayList<Chromo>) {
         this.body = list
+    }
+
+    override fun toString(): String {
+        calculateFitnessValues()
+        var str = ""
+        calculateFitnessValues()
+        for (chromo in body) {
+            str += " ${chromo.fintessValue}"
+        }
+        return "SetOfChromos{body.size: ${body.size}, fitnessValues: $str}"
     }
 }
