@@ -25,27 +25,21 @@ class Program {
 
         while (n < 10) {
             println("==============Generacja: $n ================")
-            println("Obecne1 P: $P")
+            println(" Pocz a t k o we P: $P")
             val O = SetOfChromos(e)
-            println("Obecne2 P: $P")
             println("Puste O: $O")
-            println("Obecne3 P: $P")
             for (i in 0 until K) {
-                println("Obecne4 P: $P")
-                O.add(P.crossover())
-                println("Obecne5 P: $P")
+                val child = P.crossover()
+                O.add(child)
             }
-            println("Obecne6 P: $P")
             println("O przed mutacja: $O")
-            println("Obecne7 P: $P")
             O.mutate()
-            println("Obecne8 P: $P")
-            println("O po mutacji: $O")
+            println("O   po  mutacji: $O")
             println("P przed dodaniem O: $P")
             P.add(O)
-            println("P przed select best$P")
+            println("P przed selec best: $P")
             P = P.selectBest(N)
-            println("Obecne P (po select best): $P")
+            println("P (po select best): $P")
             n++
         }
     }

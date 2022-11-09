@@ -5,8 +5,8 @@ import core.model.FlowMatrix
 const val PROBABILITY_OF_GENE_MUTATION = 30
 
 class Chromo(
-    val wrapee: FlowMatrix,
-    var fintessValue: Int = Int.MAX_VALUE
+    private val wrapee: FlowMatrix,
+    var fitnessValue: Int = Int.MAX_VALUE
     ) {
 
     fun getFlowMatrix(): FlowMatrix {
@@ -18,7 +18,12 @@ class Chromo(
     }
 
     fun getGene(d: Int): IntArray {
-        return wrapee.body[d]
+        val size = wrapee.body[d].size
+        val copyOfGene =  IntArray(size)
+        for (i in 0 until size) {
+            copyOfGene[i] = wrapee.body[d][i]
+        }
+        return copyOfGene
     }
 
     fun mutate() {
@@ -44,6 +49,6 @@ class Chromo(
     }
 
     override fun toString(): String {
-        return "$wrapee" + "Fitness Value: $fintessValue\n"
+        return "$wrapee" + "Fitness Value: $fitnessValue\n"
     }
 }

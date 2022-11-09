@@ -45,7 +45,7 @@ class SetOfChromos(
     fun selectBest(n: Int): SetOfChromos {
         calculateFitnessValues()
         val returnedList = ArrayList<Chromo>()
-        body.sortBy { it.fintessValue }
+        body.sortBy { it.fitnessValue }
 
         for (i in 0 until n) {
             returnedList.add(body[i])
@@ -63,6 +63,9 @@ class SetOfChromos(
             x.init()
             val chromo = Chromo(x)
             add(chromo)
+        }
+        for (i in body) {
+            println(i.getFlowMatrix())
         }
         return this
     }
@@ -90,7 +93,7 @@ class SetOfChromos(
     private fun calculateFitnessValues() {
         for (chromo in body) {
             val f = MaxLoadFunction()
-            chromo.fintessValue = f.run(graph, chromo.getFlowMatrix())
+            chromo.fitnessValue = f.run(graph, chromo.getFlowMatrix())
         }
     }
 
@@ -101,9 +104,8 @@ class SetOfChromos(
     override fun toString(): String {
         calculateFitnessValues()
         var str = ""
-        calculateFitnessValues()
         for (chromo in body) {
-            str += " ${chromo.fintessValue}"
+            str += " ${chromo.fitnessValue}"
         }
         return "SetOfChromos{body.size: ${body.size}, fitnessValues: $str}"
     }
