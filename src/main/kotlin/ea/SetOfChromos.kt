@@ -4,9 +4,6 @@ import core.model.FlowMatrix
 import core.model.Graph
 import core.service.MaxLoadFunction
 
-const val PROBABILITY_OF_CHROMO_MUTATION = 5
-
-
 class SetOfChromos(
     private val graph: Graph
 ) {
@@ -108,5 +105,9 @@ class SetOfChromos(
             str += " ${chromo.fitnessValue}"
         }
         return "SetOfChromos{body.size: ${body.size}, fitnessValues: $str}"
+    }
+
+    companion object{
+        private const val PROBABILITY_OF_CHROMO_MUTATION = 5
     }
 }

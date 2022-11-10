@@ -2,8 +2,6 @@ package ea
 
 import core.model.FlowMatrix
 
-const val PROBABILITY_OF_GENE_MUTATION = 30
-
 class Chromo(
     private val wrapee: FlowMatrix,
     var fitnessValue: Int = Int.MAX_VALUE
@@ -50,5 +48,9 @@ class Chromo(
 
     override fun toString(): String {
         return "$wrapee" + "Fitness Value: $fitnessValue\n"
+    }
+
+    companion object {
+        private const val PROBABILITY_OF_GENE_MUTATION = 30
     }
 }

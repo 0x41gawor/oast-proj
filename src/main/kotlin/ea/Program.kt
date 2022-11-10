@@ -3,9 +3,6 @@ package ea
 import core.model.Graph
 import core.service.Parser
 
-const val N = 10  // liczba chromosomów w populacji
-const val K = 4   // liczba robionych dzieci podczas crossover
-
 class Program {
     private val fileName = "input.txt"
 
@@ -42,5 +39,10 @@ class Program {
             println("P (po select best): $P")
             n++
         }
+    }
+
+    companion object{
+        private const val N = 10  // liczba chromosomów w populacji
+        private const val K = 4   // liczba robionych dzieci podczas crossover
     }
 }
