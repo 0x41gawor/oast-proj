@@ -4,7 +4,7 @@ import core.model.Graph
 import core.service.Parser
 
 class Program {
-    private val fileName = "input.txt"
+    private val fileName = "siecPolska.txt"
 
     lateinit var e: Graph
 
