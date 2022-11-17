@@ -39,10 +39,12 @@ class Program {
             println("P (po select best): $P")
             n++
         }
+        println("Ostatnia populacja:")
+        P.show()
     }
 
     companion object{
-        private const val N = 10  // liczba chromosomów w populacji
-        private const val K = 4   // liczba robionych dzieci podczas crossover
+        private const val N = 100  // liczba chromosomów w populacji
+        private const val K = 100   // liczba robionych dzieci podczas crossover
     }
 }

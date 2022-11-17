@@ -76,7 +76,7 @@ class SetOfChromos(
     }
 
     fun show() {
-        var i = 1
+        var i = 0
         for (chromo in body) {
             println("Chromo index: ${i++}\n$chromo")
         }
@@ -104,7 +104,7 @@ class SetOfChromos(
         for (chromo in body) {
             str += " ${chromo.fitnessValue}"
         }
-        return "SetOfChromos{body.size: ${body.size}, fitnessValues: $str}"
+        return "SetOfChromos{size: ${body.size}, fitnessValues: $str}"
     }
 
     companion object{
