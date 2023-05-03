@@ -1,15 +1,26 @@
 package core
 
-
-import core.model.ContainerImage
-import core.model.InterestMatrix
+import core.model.FlowMatrix
+import core.model.Graph
+import core.service.MaxLoadFunction
+import core.service.Parser
 
 class Program {
-    val numOfServices = 3
+    private val fileName = "input.txt"
 
-    var interestMatrix: IntArray = IntArray(numOfServices)
-    var containerImages: Array<ContainerImage>
+    lateinit var e: Graph
+    lateinit var x: FlowMatrix
 
     fun run() {
+        val parser = Parser()
+        parser.init(fileName)
+        val links = parser.links
+        val demands = parser.demands
+        e = Graph(links, demands)
+        x = FlowMatrix(demands)
+        x.init()
+        println(x)
+        val f = MaxLoadFunction()
+        println(f.run(e, x).toString())
     }
 }
