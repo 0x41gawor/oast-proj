@@ -2,6 +2,6 @@ import ea.Program
 
 
 fun main(args: Array<String>) {
-    val program = Program()
+    val program =
     program.run()
 }
